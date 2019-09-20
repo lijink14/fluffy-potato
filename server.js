@@ -28,18 +28,18 @@ var server = http.createServer((req, resp) => {
             })
         }
         else {
-            resp.statusCode = 500;
-            resp.statusMessage = "the file is not an html";
+            resp.statusCode = 403;
+            resp.statusMessage = "FORBIDDEN";
             resp.setHeader('Content-Type', 'text/text');
-            resp.end('<html><h1>the file is not an html</h1></html>');
+            resp.end('<html><body><h1>The File is not of an HTML Format</h1></body></html>');
             return;
         }
     }
     else {
-        resp.statusCode = 500;
-        resp.statusMessage = "failed";
+        resp.statusCode = 405;
+        resp.statusMessage = "Method not Allowded";
         resp.setHeader('Content-Type', 'text/html')
-        resp.end('<html><h1>the method was not get</h1></html>')
+        resp.end('<html><body><h1>The method is not supported, Please request with GET method</h1></body></html>')
         return;
     }
 })
