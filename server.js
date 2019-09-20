@@ -16,7 +16,7 @@ var server = http.createServer((req, resp) => {
                     resp.statusMessage = "Error:file not found"
                     resp.statusCode = 404;
                     resp.setHeader('Content-Type', 'text/html');
-                    resp.end('<html><h1>the file not found error</h1></html>');
+                    resp.end('the file not found error');
                     return;
                 }
                 else {
@@ -31,7 +31,7 @@ var server = http.createServer((req, resp) => {
             resp.statusCode = 403;
             resp.statusMessage = "FORBIDDEN";
             resp.setHeader('Content-Type', 'text/text');
-            resp.end('<html><body><h1>The File is not of an HTML Format</h1></body></html>');
+            resp.end('The File is not of an HTML Format');
             return;
         }
     }
@@ -39,7 +39,7 @@ var server = http.createServer((req, resp) => {
         resp.statusCode = 405;
         resp.statusMessage = "Method not Allowded";
         resp.setHeader('Content-Type', 'text/html')
-        resp.end('<html><body><h1>The method is not supported, Please request with GET method</h1></body></html>')
+        resp.end('The method is not supported, Please request with GET method')
         return;
     }
 })
